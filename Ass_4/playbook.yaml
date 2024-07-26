@@ -1,0 +1,7 @@
+- name: Playbook to install docker
+  hosts: local
+  become: yes  # This allows Ansible to escalate privileges (sudo)
+  roles:
+    - docker   # Include the 'role to install docker' role
+    - pip      # Include the 'role to install pip' role
+    - nginx    # Include the 'rolt to run nginx container' role

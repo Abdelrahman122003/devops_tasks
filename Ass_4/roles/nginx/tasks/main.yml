@@ -1,0 +1,13 @@
+---
+# tasks file for nginx
+- name: Install Docker SDK using pip
+  pip: 
+    name: docker
+    state: present
+- name: create container that used nginx image
+  docker_container:
+    name: my_image_container 
+    image: nginx 
+    state: started 
+    ports:
+        - "3000:80"

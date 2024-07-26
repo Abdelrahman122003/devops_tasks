@@ -1,0 +1,18 @@
+---
+# tasks file for pip
+- name: Ensure Python and dependencies are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - python3
+    - python3-distutils
+    - wget
+
+- name: Download get-pip.py
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+
+- name: Install pip
+  command: python3 /tmp/get-pip.py
