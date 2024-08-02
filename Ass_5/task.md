@@ -1,7 +1,6 @@
 Create an nginx deployment in k8s with only 1 replica. scale the deployment to 3 replicas. expose the deployment with a ClusterIP service, try reaching the pods with both pod IP and service IP.
 delete the pods of the deployment using a label selector and observe the result, try killing the main process of the **container** and observe.
 
-share a file containing all your commands and screenshots on github
 
 - Create nginx deployment
 
