@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-content
+  namespace: blog-application
+  labels:
+    app: blog
+data:
+  index.html: |
+    <html>
+    <head><title>Welcome to the Blog</title></head>
+    <body>
+      <h1>Welcome to the Blog</h1>
+      <p>This is a static page served by Nginx.</p>
+    </body>
+    </html>

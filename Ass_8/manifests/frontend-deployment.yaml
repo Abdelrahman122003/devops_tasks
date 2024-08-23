@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: blog-application
+  labels:
+    app: blog
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blog
+  template:   # Define the pod template
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        # Place the static content in this folder so that it is displayed when you use this nginx service
+        volumeMounts:
+        - name: static-content
+          mountPath: /usr/share/nginx/html
+      volumes:
+      # This volume contains the front-end content that stores the HTML page
+      - name: static-content
+        configMap:
+          name: frontend-content
+  
